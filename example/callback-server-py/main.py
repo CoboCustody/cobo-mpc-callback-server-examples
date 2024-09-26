@@ -28,13 +28,13 @@ class PackageDataClaim:
     def __init__(self, package_data: str, aud: str = None, exp: int = None, jti: str = None, iat: int = None,
                  iss: str = None, nbf: int = None, sub: str = None):
         self.package_data = package_data
-        self.aud = aud
-        self.exp = exp
-        self.jti = jti
-        self.iat = iat
-        self.iss = iss
-        self.nbf = nbf
-        self.sub = sub
+        if aud is not None: self.aud = aud
+        if exp is not None: self.exp = exp
+        if jti is not None: self.jti = jti
+        if iat is not None: self.iat = iat
+        if iss is not None: self.iss = iss
+        if nbf is not None: self.nbf = nbf
+        if sub is not None: self.sub = sub
 
 
 class CallBackRequest:

@@ -1,10 +1,11 @@
 package service
 
 import (
-	"github.com/gin-gonic/gin"
 	"net/http"
 	"regexp"
 	"strings"
+
+	"github.com/gin-gonic/gin"
 )
 
 type AddressWhitelistRequest struct {

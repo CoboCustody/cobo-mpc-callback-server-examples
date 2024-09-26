@@ -12,8 +12,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
+	"github.com/golang-jwt/jwt/v5"
 )
 
 type CallBackConfig struct {
@@ -380,9 +380,9 @@ func (rcs *CallBackService) CreateToken(data []byte) (string, error) {
 	// 创建JWT声明，其中包括有效时间
 	claims := &PackageDataClaim{
 		PackageData: data,
-		StandardClaims: jwt.StandardClaims{
+		RegisteredClaims: jwt.RegisteredClaims{
 			// In JWT, the expiry time is expressed as unix milliseconds
-			ExpiresAt: expirationTime.Unix(),
+			ExpiresAt: jwt.NewNumericDate(expirationTime),
 			Issuer:    rcs.config.ServiceName,
 		},
 	}

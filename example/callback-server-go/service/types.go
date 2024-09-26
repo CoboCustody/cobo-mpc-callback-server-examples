@@ -1,8 +1,6 @@
 package service
 
-import (
-	"github.com/dgrijalva/jwt-go"
-)
+import "github.com/golang-jwt/jwt/v5"
 
 const (
 	StatusOK             = 0
@@ -36,7 +34,7 @@ const (
 
 type PackageDataClaim struct {
 	PackageData []byte `json:"package_data,omitempty"`
-	jwt.StandardClaims
+	jwt.RegisteredClaims
 }
 
 // =================== TSS related ===================.
